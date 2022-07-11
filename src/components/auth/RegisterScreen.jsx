@@ -79,11 +79,13 @@ const RegisterScreen = () => {
                 name="email"
                 icon={<FiMail size={20} />}
                 label="Correo Electrónico"
+                type="email"
               />
               <Input
                 name="password"
                 icon={<FiLock size={20} />}
                 label="Contraseña"
+                type="password"
               />
               <Button type="submit">Registrarse</Button>
             </Form>
