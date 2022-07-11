@@ -1,19 +1,23 @@
+import { useDispatch } from "react-redux";
+
 import { FcGoogle } from "react-icons/fc";
-import { BsFacebook, BsApple } from "react-icons/bs";
+
 import SocialNetwork from "./SocialNetwork";
+import { startWithGoogle } from "../../action/auth";
 
 const SocialNetworks = () => {
-  const networks = [
-    <FcGoogle size={20} />,
-    <BsFacebook size={20} color="#007AFF" />,
-    <BsApple size={20} />,
-  ];
+  const dispatch = useDispatch();
+
+  const handleLoginGoogle = () => {
+    dispatch(startWithGoogle());
+  };
 
   return (
-    <div className="grid grid-cols-3 gap-5">
-      {networks.map((network, i) => (
-        <SocialNetwork key={i} icon={network} />
-      ))}
+    <div className="w-2/4 mx-auto">
+      <SocialNetwork
+        icon={<FcGoogle size={25} />}
+        onClick={handleLoginGoogle}
+      />
     </div>
   );
 };
