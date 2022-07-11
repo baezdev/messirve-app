@@ -13,7 +13,7 @@ import SocialNetworks from "./SocialNetworks";
 import shopping from "../../images/undraw_window_shopping_re_0kbm.svg";
 import logo from "../../images/logo.svg";
 
-import { login } from "../../action/auth";
+import { startLoginEmailPassword } from "../../action/auth";
 
 //Validacion de los campos
 const validate = (v) => {
@@ -35,8 +35,8 @@ const validate = (v) => {
 const LoginScreen = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = (values) => {
-    dispatch(login("ndkasd", "uahsdiuhasd"));
+  const handleLogin = ({ email, password }) => {
+    dispatch(startLoginEmailPassword(email, password));
   };
 
   return (
@@ -61,7 +61,7 @@ const LoginScreen = () => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validate={validate}
-            onSubmit={handleSubmit}
+            onSubmit={handleLogin}
           >
             <Form>
               <Input
