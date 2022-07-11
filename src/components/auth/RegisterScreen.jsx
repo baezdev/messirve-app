@@ -10,6 +10,7 @@ import Button from "../utilities/Button";
 import SocialNetworks from "./SocialNetworks";
 
 import cart from "../../images/undraw_add_to_cart_re_wrdo.svg";
+import logo from "../../images/logo.svg";
 
 //Validacion de los campos
 const validate = (v) => {
@@ -44,41 +45,53 @@ const RegisterScreen = () => {
 
   return (
     <Container>
-      <h1 className="mt-10 mb-4 text-2xl font-extrabold text-center">
+      <h1 className="mt-10 mb-4 text-2xl font-extrabold text-center md:hidden">
         Messirve
       </h1>
-      <Image src={cart} alt="vamos a comprar" />
-      <h2 className="text-2xl font-bold mb-9">Registrarse</h2>
-      <SocialNetworks />
-      <p className="my-6 text-base font-semibold text-center text-gray">
-        O regístrate con...
-      </p>
-      <Formik
-        initialValues={{ name: "", email: "", password: "" }}
-        validate={validate}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <Input name="name" icon={<FiUser size={20} />} label="Nombre" />
-          <Input
-            name="email"
-            icon={<FiMail size={20} />}
-            label="Correo Electrónico"
+      <div className="flex-row-reverse items-center block gap-24 md:px-10 md:h-screen md:flex">
+        <div className="mx-auto">
+          <Image src={cart} alt="vamos a comprar" width={400} />
+        </div>
+        <div className="md:px-16 md:w-3/6">
+          <Image
+            src={logo}
+            alt="logo de messirve"
+            width={150}
+            className="hidden md:block"
           />
-          <Input
-            name="password"
-            icon={<FiLock size={20} />}
-            label="Contraseña"
-          />
-          <Button type="submit">Registrarse</Button>
-        </Form>
-      </Formik>
-      <p className="my-6 text-base font-semibold text-center text-gray">
-        Ya tienes cuenta?
-        <Link to="/auth/login" className="text-blue">
-          Iniciar Sesión
-        </Link>
-      </p>
+          <h2 className="text-2xl font-bold mb-9 md:text-3xl">Registrarse</h2>
+          <SocialNetworks />
+          <p className="my-6 text-base font-semibold text-center text-gray">
+            O regístrate con...
+          </p>
+          <Formik
+            initialValues={{ name: "", email: "", password: "" }}
+            validate={validate}
+            onSubmit={handleSubmit}
+          >
+            <Form>
+              <Input name="name" icon={<FiUser size={20} />} label="Nombre" />
+              <Input
+                name="email"
+                icon={<FiMail size={20} />}
+                label="Correo Electrónico"
+              />
+              <Input
+                name="password"
+                icon={<FiLock size={20} />}
+                label="Contraseña"
+              />
+              <Button type="submit">Registrarse</Button>
+            </Form>
+          </Formik>
+          <p className="my-6 text-base font-semibold text-center text-gray">
+            Ya tienes cuenta?{" "}
+            <Link to="/auth/login" className="text-blue">
+              Iniciar Sesión
+            </Link>
+          </p>
+        </div>
+      </div>
     </Container>
   );
 };
