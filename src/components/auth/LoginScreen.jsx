@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
+import { useDispatch } from "react-redux";
 import validator from "validator";
 import { FiMail, FiLock } from "react-icons/fi";
 
@@ -10,6 +11,9 @@ import Button from "../utilities/Button";
 import SocialNetworks from "./SocialNetworks";
 
 import shopping from "../../images/undraw_window_shopping_re_0kbm.svg";
+import logo from "../../images/logo.svg";
+
+import { login } from "../../action/auth";
 
 //Validacion de los campos
 const validate = (v) => {
@@ -29,46 +33,62 @@ const validate = (v) => {
 };
 
 const LoginScreen = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values) => {
-    console.log(values);
+    dispatch(login("ndkasd", "uahsdiuhasd"));
   };
 
   return (
     <Container>
-      <h1 className="mt-10 mb-4 text-2xl font-extrabold text-center">
+      <h1 className="mt-10 mb-4 text-2xl font-extrabold text-center md:hidden">
         Messirve
       </h1>
-      <Image src={shopping} alt="vamos de shopping" />
-      <h2 className="text-2xl font-bold mb-9">Iniciar Sesión</h2>
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        validate={validate}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <Input
-            name="email"
-            icon={<FiMail size={20} />}
-            label="Correo Electrónico"
+      <div className="flex-row-reverse items-center block gap-24 md:px-10 md:h-screen md:flex">
+        <div className="mx-auto">
+          <Image src={shopping} alt="vamos de shopping" width={400} />
+        </div>
+        <div className="md:px-16 md:w-3/6">
+          <Image
+            src={logo}
+            alt="logo de messirve"
+            width={150}
+            className="hidden md:block"
           />
-          <Input
-            name="password"
-            icon={<FiLock size={20} />}
-            label="Contraseña"
-          />
-          <Button type="submit">Iniciar Sesión</Button>
-        </Form>
-      </Formik>
-      <p className="my-6 text-base font-semibold text-center text-gray">
-        O inicia con...
-      </p>
-      <SocialNetworks />
-      <p className="my-6 text-base font-semibold text-center text-gray">
-        No tienes cuenta?{" "}
-        <Link to="/auth/register" className="text-blue">
-          Registrate
-        </Link>
-      </p>
+          <h2 className="text-2xl font-bold md:text-3xl mb-9">
+            Iniciar Sesión
+          </h2>
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validate={validate}
+            onSubmit={handleSubmit}
+          >
+            <Form>
+              <Input
+                name="email"
+                icon={<FiMail size={20} />}
+                label="Correo Electrónico"
+              />
+              <Input
+                name="password"
+                icon={<FiLock size={20} />}
+                label="Contraseña"
+              />
+              <Button type="submit">Iniciar Sesión</Button>
+            </Form>
+          </Formik>
+          <p className="my-6 text-base font-semibold text-center text-gray">
+            O inicia con...
+          </p>
+          <SocialNetworks />
+          <p className="my-6 text-base font-semibold text-center text-gray">
+            No tienes cuenta?{" "}
+            <Link to="/auth/register" className="text-blue">
+              Registrate
+            </Link>
+          </p>
+        </div>
+      </div>
     </Container>
   );
 };
