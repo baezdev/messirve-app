@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import validator from "validator";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
@@ -11,6 +12,7 @@ import SocialNetworks from "./SocialNetworks";
 
 import cart from "../../images/undraw_add_to_cart_re_wrdo.svg";
 import logo from "../../images/logo.svg";
+import { startCreateUserWithEmailAndPassword } from "../../action/auth";
 
 //Validacion de los campos
 const validate = (v) => {
@@ -39,8 +41,10 @@ const validate = (v) => {
 };
 
 const RegisterScreen = () => {
-  const handleSubmit = (values) => {
-    console.log(values);
+  const dispatch = useDispatch();
+
+  const handleRegister = ({ email, password, name }) => {
+    dispatch(startCreateUserWithEmailAndPassword(email, password, name));
   };
 
   return (
@@ -67,7 +71,7 @@ const RegisterScreen = () => {
           <Formik
             initialValues={{ name: "", email: "", password: "" }}
             validate={validate}
-            onSubmit={handleSubmit}
+            onSubmit={handleRegister}
           >
             <Form>
               <Input name="name" icon={<FiUser size={20} />} label="Nombre" />
