@@ -1,4 +1,4 @@
-import Image from "./Image";
+import Image from "../utilities/Image";
 import logo from "../../images/logo.svg";
 
 const LoadingScreen = () => {

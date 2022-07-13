@@ -6,8 +6,8 @@ import { FiMail, FiLock, FiUser } from "react-icons/fi";
 
 import Container from "../utilities/Container";
 import Image from "../utilities/Image";
-import Input from "../utilities/Input";
-import Button from "../utilities/Button";
+import Input from "../layout/Input";
+import Button from "../layout/Button";
 import SocialNetworks from "./SocialNetworks";
 
 import cart from "../../images/undraw_add_to_cart_re_wrdo.svg";

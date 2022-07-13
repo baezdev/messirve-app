@@ -5,11 +5,13 @@ import { useDispatch } from "react-redux";
 import { auth } from "../firebase/firebase.config";
 import { login } from "../action/auth";
 
-import Home from "../components/Home";
+import MessirveRouter from "./MessirveRouter";
 import AuthRouter from "./AuthRouter";
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
-import LoadingScreen from "../components/utilities/LoadingScreen";
+import LoadingScreen from "../components/layout/LoadingScreen";
+import HomeScreen from "../components/home/HomeScreen";
+import ShoppingCart from "../page/ShoppingCart";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -52,10 +54,10 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/"
+          path="/*"
           element={
             <PrivateRoutes isLoggin={isLoggin}>
-              <Home />
+              <MessirveRouter />
             </PrivateRoutes>
           }
         />
