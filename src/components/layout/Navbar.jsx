@@ -11,13 +11,10 @@ import Container from "../utilities/Container";
 import Image from "../utilities/Image";
 
 import logo from "../../images/logo.svg";
-import { auth } from "../../firebase/firebase.config";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const name = useSelector(({ auth }) => auth.name);
-
-  console.log(name);
 
   const handleLogout = () => {
     dispatch(startLogout());
@@ -31,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed bottom-0 grid items-center w-full h-16 grid-cols-4 bg-white border md:hidden md:relative md:top-0 md:bg-background place-content-center bottom- rounded-t-3xl rounded-tr-3xl border-gray2">
+      <nav className="fixed bottom-0 z-50 grid items-center w-full h-16 grid-cols-4 bg-white border md:hidden md:relative md:top-0 md:bg-background place-content-center bottom- rounded-t-3xl rounded-tr-3xl border-gray2">
         {links.map(({ name, url, icon }) => (
           <NavLink
             key={name}
@@ -49,7 +46,7 @@ const Navbar = () => {
           <IoLogOut size={30} />
         </button>
       </nav>
-      <nav className="relative top-0 hidden md:block">
+      <nav className="relative top-0 hidden md:block animate__animated animate__fadeInDown">
         <Container>
           <div className="flex items-center justify-between h-28">
             <div className="flex items-center">

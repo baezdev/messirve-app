@@ -46,9 +46,14 @@ const LoginScreen = () => {
       </h1>
       <div className="flex-row-reverse items-center block gap-24 md:px-10 md:h-screen md:flex">
         <div className="mx-auto">
-          <Image src={shopping} alt="vamos de shopping" width={400} />
+          <Image
+            src={shopping}
+            alt="vamos de shopping"
+            width={400}
+            className="animate__animated animate__fadeIn"
+          />
         </div>
-        <div className="md:px-16 md:w-3/6">
+        <div className="md:px-16 md:w-3/6 animate__animated animate__fadeIn">
           <Image
             src={logo}
             alt="logo de messirve"

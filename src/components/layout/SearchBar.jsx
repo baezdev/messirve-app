@@ -4,7 +4,7 @@ import SecondaryInput from "./SecondaryInput";
 
 const SearchBar = () => {
   return (
-    <div className="flex w-full mx-auto mb-5 h-14 md:w-7/12">
+    <div className="flex w-full mx-auto mb-5 h-14 md:w-7/12 animate__animated animate__fadeIn">
       <SecondaryInput
         name="search"
         type="search"
