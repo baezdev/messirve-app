@@ -12,6 +12,7 @@ import PublicRoutes from "./PublicRoutes";
 import LoadingScreen from "../components/layout/LoadingScreen";
 import HomeScreen from "../components/home/HomeScreen";
 import ShoppingCart from "../page/ShoppingCart";
+import { startLoadingProducts } from "../action/product";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const AppRouter = () => {
         dispatch(login(user.uid, user.displayName));
         setIsLoggin(true);
         //Como aqui es la primerea vez que conocemos el uid del usuario, se hace el dispatch de la accion asincrona
-        /* dispatch(startLoadingNotes(user.uid)); */
+        dispatch(startLoadingProducts());
       } else {
         setIsLoggin(false);
       }
