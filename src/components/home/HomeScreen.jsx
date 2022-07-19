@@ -1,10 +1,5 @@
-import { useDispatch } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-
-import { startLogout } from "../../action/auth";
-import ShoppingCart from "../../page/ShoppingCart";
 import Navbar from "../layout/Navbar";
-
+import Products from "../products/Products";
 import Container from "../utilities/Container";
 import Header from "./Header";
 
@@ -17,15 +12,9 @@ const HomeScreen = () => {
         </h1>
       </Container>
       <Navbar />
-      <Container>
-        <h2 className="my-6 text-5xl font-extrabold text-center">
-          Vende y Compra
-        </h2>
-        <p className="mb-6 text-2xl font-semibold text-center capitalize">
-          Cosas de Segunda Mano, busca cobre y encontrarás oro 🤑
-        </p>
-        <Header />
-      </Container>
+      <Header />
+
+      <Products />
     </main>
   );
 };
