@@ -3,6 +3,8 @@ import { Provider } from "react-redux";
 
 import { store } from "./store/store";
 
+import "animate.css";
+
 function MessirveApp() {
   return (
     <Provider store={store}>
