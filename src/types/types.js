@@ -4,11 +4,8 @@ const types = {
   //Autenticacion
   login: "[Auth] Login",
   logout: "[Auth] Logout",
-  //Interfaz
-  /* setError: "[UI] Set Error",
-  removeError: "[UI] Remove Error",
-  uiStartLoading: "[UI] Start loading",
-  uiFinishLoading: "[UI] Finish loading", */
+  //Productos
+  productsLoad: "[Products] Load Products"
 };
 
 export default types;
