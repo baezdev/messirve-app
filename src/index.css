@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .loader {
-  width: 120px;
-  height: 120px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: inline-block;
   border-top: 4px solid #000;
@@ -18,8 +18,8 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 120px;
-  height: 120px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border-left: 4px solid #007aff;
   border-bottom: 4px solid transparent;
@@ -37,4 +37,18 @@
 a,
 button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.h-screen2 {
+  height: calc(100vh - 112px);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
