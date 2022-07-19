@@ -10,8 +10,7 @@ import AuthRouter from "./AuthRouter";
 import PrivateRoutes from "./PrivateRoutes";
 import PublicRoutes from "./PublicRoutes";
 import LoadingScreen from "../components/layout/LoadingScreen";
-import HomeScreen from "../components/home/HomeScreen";
-import ShoppingCart from "../page/ShoppingCart";
+
 import { startLoadingProducts } from "../action/product";
 
 const AppRouter = () => {
