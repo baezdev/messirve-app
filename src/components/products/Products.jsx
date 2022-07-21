@@ -12,7 +12,7 @@ const Products = () => {
         <h3 className="my-6 text-2xl font-bold md:text-3xl">
           Nuevos Productos
         </h3>
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-7 md:grid-cols-4">
           {products?.map(({ id, nameProduct, price, pictures }) => (
             <ProductCard
               key={nameProduct}

@@ -28,7 +28,6 @@ const ProductScreen = () => {
 
   const product = useSelector(({ product }) => product.productActive);
   const info = product?.[0];
-  console.log(info);
 
   if (loading) {
     return <LoadingScreen />;
@@ -46,7 +45,7 @@ const ProductScreen = () => {
           Messirve
         </h1>
         <div className="items-center grid-cols-2 gap-20 md:grid place-content-center h-screen2">
-          <div className="flex flex-col justify-between h-full">
+          <div className="flex flex-col justify-between h-full animate__animated animate__fadeInLeft">
             <div>
               <h3 className="text-5xl font-extrabold mb-7 md:text-7xl">
                 {info && info.nameProduct}
@@ -66,7 +65,7 @@ const ProductScreen = () => {
               </Button>
             </div>
           </div>
-          <div className="mt-10 md:mt-0">
+          <div className="mt-10 md:mt-0 animate__animated animate__fadeInRight">
             <Carousel pictures={info.pictures} />
           </div>
         </div>

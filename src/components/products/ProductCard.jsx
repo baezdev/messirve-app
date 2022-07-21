@@ -11,7 +11,7 @@ const ProductCard = ({ name, price, image, id }) => {
 
   return (
     <div
-      className="p-3 mx-auto duration-200 bg-white border cursor-pointer rounded-xl w-fit h-fit border-gray2 hover:-translate-y-1"
+      className="w-full p-4 mx-auto duration-200 bg-white cursor-pointer rounded-xl h-fit hover:-translate-y-1"
       onClick={handleClickProduct}
     >
       <Image src={image} className="mb-2" />
