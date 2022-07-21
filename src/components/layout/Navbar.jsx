@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed bottom-0 z-50 grid items-center w-full h-16 grid-cols-4 bg-white border md:hidden md:relative md:top-0 md:bg-background place-content-center bottom- rounded-t-3xl rounded-tr-3xl border-gray2">
+      <nav className="fixed bottom-0 left-0 z-50 grid items-center w-full h-16 grid-cols-4 bg-white border md:hidden place-content-center rounded-t-3xl rounded-tr-3xl border-gray2">
         {links.map(({ name, url, icon }) => (
           <NavLink
             key={name}

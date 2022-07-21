@@ -7,7 +7,7 @@ const Products = () => {
   const { products } = useSelector(({ product }) => product);
 
   return (
-    <section className="mb-16 animate__animated animate__fadeInUp">
+    <section className="mb-16 animate__animated animate__fadeIn">
       <Container>
         <h3 className="my-6 text-2xl font-bold md:text-3xl">
           Nuevos Productos
