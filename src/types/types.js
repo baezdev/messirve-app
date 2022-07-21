@@ -5,7 +5,8 @@ const types = {
   login: "[Auth] Login",
   logout: "[Auth] Logout",
   //Productos
-  productsLoad: "[Products] Load Products"
+  productsLoad: "[Products] Load Products",
+  productActive: "[Products] Active Product"
 };
 
 export default types;
