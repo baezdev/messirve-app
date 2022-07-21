@@ -39,8 +39,10 @@ button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.h-screen2 {
-  height: calc(100vh - 112px);
+@media (min-width: 768px) {
+  .h-screen2 {
+    height: calc(100vh - 112px);
+  }
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -51,4 +53,39 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.swiper {
+  width: 60%;
+  height: 60%;
+  border-radius: 8px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
 }
