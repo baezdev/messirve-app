@@ -103,3 +103,11 @@ input[type="number"] {
   overflow: hidden;
   border-radius: 8px;
 }
+
+.button{
+  background-color: #007aff;
+  padding: 8px 15px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 8px;
+}

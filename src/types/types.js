@@ -6,7 +6,8 @@ const types = {
   logout: "[Auth] Logout",
   //Productos
   productsLoad: "[Products] Load Products",
-  productActive: "[Products] Active Product"
+  productActive: "[Products] Active Product",
+  productAddNew: "[Products] New Product",
 };
 
 export default types;
