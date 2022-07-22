@@ -34,11 +34,12 @@ export const startActiveProduct = (id) => {
 
 export const startNewProduct = async (product) => {
   const { pictures } = product;
-  const arrPictures = await Promise.all(
+  const arr = await Promise.all(
     pictures.map(async (picture) => {
       return await fileUpload(picture);
     })
   );
+  const arrPictures = arr.reverse();
 
   const newProduct = {
     ...product,

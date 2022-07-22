@@ -1,5 +1,6 @@
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import validator from "validator";
 
 import {
@@ -17,7 +18,6 @@ import Button from "../components/layout/Button";
 import RadioSection from "../components/utilities/RadioSection";
 
 import shopping from "../images/undraw_web_shopping_re_owap.svg";
-import { useState } from "react";
 import { startLoadingProducts, startNewProduct } from "../action/product";
 
 //Validacion de los campos
@@ -47,10 +47,12 @@ const validate = (value) => {
 
 const SellScreen = () => {
   const [files, setFiles] = useState([]);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const dispatch = useDispatch();
 
   const handlePublicProduct = (values) => {
     values.pictures = [...files];
+    setButtonDisabled(true);
     startNewProduct(values);
     dispatch(startLoadingProducts());
   };
@@ -128,7 +130,9 @@ const SellScreen = () => {
                   </div>
                 </div>
                 {/* Input para subir fotos */}
-                <Button type="submit">Publicar</Button>
+                <Button type="submit" disabled={buttonDisabled}>
+                  Publicar
+                </Button>
               </Form>
             </Formik>
           </div>

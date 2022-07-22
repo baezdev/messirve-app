@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { startLoadingProducts } from "../../action/product";
+import Footer from "../layout/Footer";
 
 import Navbar from "../layout/Navbar";
 import Products from "../products/Products";
@@ -26,6 +27,7 @@ const HomeScreen = () => {
       <Header />
 
       <Products />
+      <Footer />
     </main>
   );
 };

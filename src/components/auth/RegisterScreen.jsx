@@ -34,8 +34,15 @@ const validate = (v) => {
   //Validacion de la contraseña
   if (!v.password) {
     errors.password = "Se necesita una Contraseña 🤡";
-  } else if (!validator.isStrongPassword(v.password, { minSymbols: 0 })) {
-    errors.password = "Puedes Hacerlo Mejor 🤡";
+  } else if (
+    !validator.isStrongPassword(v.password, {
+      minSymbols: 0,
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+    })
+  ) {
+    errors.password = "Debe tener al menos una mayúscula y minúsculas 🤡";
   }
   return errors;
 };
