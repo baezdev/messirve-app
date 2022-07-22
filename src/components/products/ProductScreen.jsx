@@ -24,7 +24,7 @@ const ProductScreen = () => {
 
   setTimeout(() => {
     setLoading(false);
-  }, 1000);
+  }, 500);
 
   const product = useSelector(({ product }) => product.productActive);
   const info = product?.[0];
@@ -45,7 +45,7 @@ const ProductScreen = () => {
           Messirve
         </h1>
         <div className="items-center grid-cols-2 gap-20 md:grid place-content-center h-screen2">
-          <div className="flex flex-col justify-between h-full animate__animated animate__fadeInLeft">
+          <div className="flex flex-col justify-between h-full animate__animated animate__fadeIn">
             <div>
               <h3 className="text-5xl font-extrabold mb-7 md:text-7xl">
                 {info && info.nameProduct}
@@ -65,7 +65,7 @@ const ProductScreen = () => {
               </Button>
             </div>
           </div>
-          <div className="mt-10 md:mt-0 animate__animated animate__fadeInRight">
+          <div className="mt-10 md:mt-0 animate__animated animate__fadeIn">
             <Carousel pictures={info.pictures} />
           </div>
         </div>
