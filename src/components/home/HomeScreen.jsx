@@ -1,9 +1,20 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { startLoadingProducts } from "../../action/product";
+
 import Navbar from "../layout/Navbar";
 import Products from "../products/Products";
 import Container from "../utilities/Container";
 import Header from "./Header";
 
 const HomeScreen = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(startLoadingProducts());
+  }, []);
+
   return (
     <main className="relative h-screen">
       <Container>
