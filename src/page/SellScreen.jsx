@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field } from "formik";
 import validator from "validator";
 
@@ -17,28 +18,28 @@ import RadioSection from "../components/utilities/RadioSection";
 
 import shopping from "../images/undraw_web_shopping_re_owap.svg";
 import { useState } from "react";
+import { startLoadingProducts, startNewProduct } from "../action/product";
 
 //Validacion de los campos
-const validate = (v) => {
+const validate = (value) => {
   const errors = {};
-  if (!v.nameProduct) {
-    errors.nameProduct = "Campo obligatorio";
+
+  if (validator.isEmpty(value.nameProduct)) {
+    errors.nameProduct = "El campo es obligatorio";
   }
 
-  if (!v.description) {
-    errors.description = "Campo obligatorio";
+  if (validator.isEmpty(value.description)) {
+    errors.description = "El campo es obligatorio";
   }
 
-  if (!v.price) {
-    errors.price = "Campo obligatorio";
-  }
-
-  if (v.pictures.includes("0")) {
-    errors.pictures = "Campo obligatorio";
-  }
-
-  if (!v.status) {
-    errors.price = "Campo obligatorio";
+  if (validator.isEmpty(value.price)) {
+    errors.price = "El campo es obligatorio";
+  } else if (
+    !validator.isFloat(value.price, {
+      min: 1,
+    })
+  ) {
+    errors.price = "Ingrese una cantidad valida";
   }
 
   return errors;
@@ -46,12 +47,12 @@ const validate = (v) => {
 
 const SellScreen = () => {
   const [files, setFiles] = useState([]);
-
-  console.log(files);
+  const dispatch = useDispatch();
 
   const handlePublicProduct = (values) => {
     values.pictures = [...files];
-    console.log(values);
+    startNewProduct(values);
+    dispatch(startLoadingProducts());
   };
 
   return (
@@ -92,14 +93,13 @@ const SellScreen = () => {
                 <Input
                   name="description"
                   label="Descripción"
-                  type="textarea"
+                  type="text"
                   icon={<Description size={20} />}
                 />
                 <Input
                   name="price"
                   label="Precio"
-                  type="number"
-                  min="0"
+                  type="text"
                   icon={<MdAttachMoney size={20} />}
                 />
                 <RadioSection />
