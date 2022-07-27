@@ -104,10 +104,30 @@ input[type="number"] {
   border-radius: 8px;
 }
 
-.button{
+.button {
   background-color: #007aff;
   padding: 8px 15px;
   font-weight: 700;
   color: #fff;
   border-radius: 8px;
+}
+
+.text {
+  font-size: 20px;
+  overflow: auto;
+  height: 138px;
+}
+
+.text::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.text::-webkit-scrollbar-track {
+  background: #f6f6f6; /* color of the tracking area */
+}
+
+.text::-webkit-scrollbar-thumb {
+  background-color: #868686; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #f6f6f6; /* creates padding around scroll thumb */
 }

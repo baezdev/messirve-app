@@ -50,7 +50,7 @@ const ProductScreen = () => {
               <h3 className="text-5xl font-extrabold mb-7 md:text-7xl">
                 {info && info.nameProduct}
               </h3>
-              <p className="mb-4 text-2xl font-medium text-gray">
+              <p className="mb-4 text-2xl font-medium text-gray text">
                 {info && info.description}
               </p>
               <p className="mb-1 text-sm text-gray">Estado del producto</p>

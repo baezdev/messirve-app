@@ -84,6 +84,5 @@ export const startLogout = () => {
     await auth.signOut();
     dispatch(logout());
     //Aqui se limpia al cerrar sesion
-    /*     dispatch(noteLogout()); */
   };
 };
