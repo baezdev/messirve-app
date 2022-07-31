@@ -17,6 +17,25 @@ export const setActiveProduct = (product) => ({
   payload: product,
 });
 
+export const setProductToCart = (productId) => ({
+  type: types.productsCart,
+  payload: productId,
+});
+
+export const setDeleteProductToCart = (productId) => ({
+  type: types.productCartDelete,
+  payload: productId,
+});
+
+/* export const getListProductsCard = async (ids) => {
+  const products = []
+  ids.map(id => {
+    const info = await loadProductById(id)
+    products.push(info)
+  })
+  return products
+} */
+
 //Acciones asincronas
 export const startLoadingProducts = () => {
   return async (dispatch) => {
@@ -59,4 +78,12 @@ export const startNewProduct = async (product) => {
       window.location.href = "/";
     }
   });
+};
+
+export const startProductToCart = (product) => {
+  return (dispatch, getState) => {
+    dispatch(setProductToCart(product));
+    const { shoppingCart } = getState().product;
+    localStorage.setItem("shoppingCart", `${JSON.stringify(shoppingCart)}`);
+  };
 };

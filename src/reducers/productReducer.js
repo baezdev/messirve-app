@@ -3,6 +3,7 @@ import types from "../types/types";
 const init = {
   products: [],
   productActive: null,
+  shoppingCart: [],
 };
 
 const productReducer = (state = init, action) => {
@@ -19,6 +20,18 @@ const productReducer = (state = init, action) => {
       };
     default:
       return state;
+    case types.productsCart:
+      return {
+        ...state,
+        shoppingCart: [...state.shoppingCart, action.payload],
+      };
+    case types.productCartDelete:
+      return {
+        ...state,
+        shoppingCart: state.shoppingCart.filter(
+          (product) => product.id !== action.payload
+        ),
+      };
   }
 };
 

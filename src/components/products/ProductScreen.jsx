@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { IoCart } from "react-icons/io5";
+import confetti from "canvas-confetti";
 
-import { startActiveProduct } from "../../action/product";
+import { startActiveProduct, startProductToCart } from "../../action/product";
 
 import Navbar from "../layout/Navbar";
 import Container from "../utilities/Container";
@@ -15,19 +16,44 @@ import LoadingScreen from "../layout/LoadingScreen";
 
 const ProductScreen = () => {
   const [loading, setLoading] = useState(true);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const { idProduct } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(startActiveProduct(idProduct));
+    if (
+      shoppingCart.find((product) => product.id === idProduct) !== undefined
+    ) {
+      setButtonDisabled(true);
+    }
   }, []);
 
   setTimeout(() => {
     setLoading(false);
   }, 500);
 
+  //Info del producto
   const product = useSelector(({ product }) => product.productActive);
+  const shoppingCart = useSelector(({ product }) => product.shoppingCart);
   const info = product?.[0];
+  //Añadir al carrito
+  const handleAddCart = () => {
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    if (shoppingCart.findIndex((product) => product.id === idProduct) === -1) {
+      confetti({
+        angle: randomInRange(55, 125),
+        spread: randomInRange(50, 70),
+        particleCount: randomInRange(50, 100),
+        origin: { y: 0.6 },
+      });
+      dispatch(startProductToCart(info));
+      setButtonDisabled(true);
+    }
+  };
 
   if (loading) {
     return <LoadingScreen />;
@@ -60,7 +86,7 @@ const ProductScreen = () => {
               <p className="mb-3 text-4xl font-extrabold md:mb-0">
                 $<span>{info.price}</span>
               </p>
-              <Button>
+              <Button onClick={handleAddCart} disabled={buttonDisabled}>
                 <IoCart size={25} /> Agregar Al Carrito
               </Button>
             </div>

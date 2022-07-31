@@ -8,6 +8,8 @@ const types = {
   productsLoad: "[Products] Load Products",
   productActive: "[Products] Active Product",
   productAddNew: "[Products] New Product",
+  productsCart: "[Products] Add To Shopping Cart",
+  productCartDelete: "[Products] Delete To Shopping Cart",
 };
 
 export default types;

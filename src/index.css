@@ -59,6 +59,12 @@ button {
   }
 }
 
+@media (min-width: 768px) {
+  .h-screen3 {
+    height: calc(100vh - 192px);
+  }
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
