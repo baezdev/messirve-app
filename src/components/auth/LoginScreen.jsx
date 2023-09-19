@@ -27,7 +27,7 @@ const validate = (v) => {
   if (!v.password) {
     errors.password = "Se necesita una Contraseña 🤡";
   } else if (!validator.isStrongPassword(v.password, { minSymbols: 0 })) {
-    errors.password = "Debe tener al menos una mayúscula y minúsculas 🤡";
+    errors.password = "Debe tener al menos una mayúscula y minúsculas y un número 🤡";
   }
   return errors;
 };
