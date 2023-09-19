@@ -42,7 +42,7 @@ const validate = (v) => {
       minUppercase: 1,
     })
   ) {
-    errors.password = "Debe tener al menos una mayúscula y minúsculas 🤡";
+    errors.password = "Debe tener al menos una mayúscula y minúsculas y un número 🤡";
   }
   return errors;
 };
